@@ -51,7 +51,7 @@
 					echo  "Ошибка: $result";
 					echo '</div>';
 				}elseif((INT)($refundableamount) && is_numeric($rate) && (INT)($days) >0){
-					$result = $refundableamount/ ($rate*($days % 365)+1);
+					$result = $refundableamount/ (($rate/100)*(($days- $days%365)/365)+1);
 					echo  'Первоначальная сумма привлеченных в депозит денежных средств '. number_format($result,2,',',' ').' руб.';
 				}	
 
